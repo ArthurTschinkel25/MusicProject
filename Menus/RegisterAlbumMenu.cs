@@ -17,7 +17,8 @@ internal class RegisterAlbumMenu : Menu
             Band band = RegisteredBands[bandName];
             band.AddAlbum(new Album(albumTitle));
             Console.WriteLine($"The album {albumTitle} by {bandName} has been successfully registered!");
-            Thread.Sleep(4000);
+            Console.WriteLine("Press any key to return to the main menu");
+            Console.ReadKey();
             Console.Clear();
         }
         else

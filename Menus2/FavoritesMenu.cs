@@ -8,21 +8,16 @@ namespace BandNamespace.Menus2
 {
     internal class FavoritesMenu : Menu2
     {
-        public string Name { get; set; }
         public override void Execute(List<Menu2> musics, List<Menu2> FavoriteMusics)
         {
             Console.Clear();
             Console.WriteLine("Which music do you want to add to favorites?");
-            string? name = Console.ReadLine();
+            string? name = Console.ReadLine().ToLower();
             Menu2 favoritemusic = musics.FirstOrDefault(music => music.Name.ToLower() == name.ToLower());
             if (favoritemusic != null)
             {
                 FavoriteMusics.Add(favoritemusic);
-                Console.WriteLine($"The music {name} has been added to favorites.");
-                foreach (Menu2 music in FavoriteMusics)
-                {
-                    Console.WriteLine(music.Name);
-                }
+                Console.WriteLine($"The music {favoritemusic.Name} has been added to favorites.");
             }
             else
             {

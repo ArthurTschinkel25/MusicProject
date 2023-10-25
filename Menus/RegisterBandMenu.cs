@@ -12,11 +12,6 @@ internal class RegisterBandMenu : Menu
         string bandName = Console.ReadLine()!;
         Band band = new Band(bandName);
         RegisteredBands.Add(bandName, band);
-        Console.WriteLine("RegisteredBands after registration:");
-        foreach (var pair in RegisteredBands)
-        {
-            Console.WriteLine($"Band: {pair.Key}");
-        }
         Console.WriteLine($"The Band {bandName} has been successfully registered!");
         Console.WriteLine("Press any key to return to the main menu");
         Console.ReadKey();

@@ -1,21 +1,24 @@
 ﻿using BandNamespace.Menus2;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace BandNamespace.Menus2
 {
     internal class ShowFavoritesMenu : Menu2
     {
-       public override void Execute(List<Menu2> musics, List<Menu2> favorites)
+        public override void Execute(List<Menu2> musics, List<Menu2> FavoriteMusics)
         {
-            Console.Clear();   
-            foreach (var music in favorites) 
+            Console.Clear();
+            Console.WriteLine("Favorite musics:");
+            if (FavoriteMusics.Count == 0)
             {
-                Console.WriteLine(music);
+                Console.WriteLine("Before checking your favorite musics, you must add one");
+            }
+            else
+            {
+                foreach (Menu2 music in FavoriteMusics)
+                {
+                    Console.WriteLine(music.Name);
+                }
             }
         }
+
     }
 }

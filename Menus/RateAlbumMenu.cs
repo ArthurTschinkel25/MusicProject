@@ -25,7 +25,8 @@ internal class RateAlbumMenu : Menu
                 Rating rating = Rating.Parse(Console.ReadLine()!);
                 album.AddRating(rating);
                 Console.WriteLine($"\nThe rating {rating.Score} has been successfully recorded for the album {albumTitle}");
-                Thread.Sleep(2000);
+                Console.WriteLine("Press any key to return to the main menu");
+                Console.ReadKey();
                 Console.Clear();
             }
             else

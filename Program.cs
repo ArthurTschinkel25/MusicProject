@@ -11,22 +11,22 @@ class Program
     private static Dictionary<string, Band> RegisteredBands = new Dictionary<string, Band>();
     static async Task Main(string[] args)
     {
-        List<Menu2> musics = null;
         List<Menu2> FavoriteMusics = new List<Menu2>();
-
+        List<Menu2> musics = null;
 
         using (HttpClient client = new HttpClient())
         {
             string apiMusica = await client.GetStringAsync("https://guilhermeonrails.github.io/api-csharp-songs/songs.json");
             musics = JsonSerializer.Deserialize<List<Menu2>>(apiMusica);
         }
-
+    
         void DisplayLogo()
         {
             Console.WriteLine("Welcome to my music program!");
             Console.WriteLine();
             Console.WriteLine("Press 1 to view the existing Musics in this program");
             Console.WriteLine("Press 2 to add musics you like to the program");
+
             string selectedOption = Console.ReadLine();
             switch (selectedOption)
             {
@@ -36,10 +36,9 @@ class Program
                 case "2":
                     DisplayCreationMenuOptions();
                     break;
-        
+
             }
         }
-
         DisplayLogo();
 
         void DisplayExistingMusicOptions()
@@ -99,6 +98,7 @@ class Program
             {
                 Menu menu = menuOptions[selectedOptionNumeric];
                 menu.Execute(RegisteredBands);
+                DisplayLogo();
                 if (selectedOptionNumeric > 0) DisplayCreationMenuOptions();
             }
             else

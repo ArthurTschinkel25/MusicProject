@@ -17,7 +17,8 @@ internal class RateBandMenu : Menu
             Rating rating = Rating.Parse(Console.ReadLine()!);
             band.AddRating(rating);
             Console.WriteLine($"\nThe rating {rating.Score} has been successfully recorded for the band {bandName}");
-            Thread.Sleep(2000);
+            Console.WriteLine("Press any key to return to the main menu");
+            Console.ReadKey();
             Console.Clear();
         }
         else

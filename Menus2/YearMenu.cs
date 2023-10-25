@@ -6,9 +6,9 @@
         {
             Console.Clear();
             Console.WriteLine("Which year's musics would you like to see? ");
-            string? year = Console.ReadLine();
+            string? year = Console.ReadLine().ToLower();
             var filteredmusicsByYear = musics
-                .Where(music => music.Year.Equals(year))
+                .Where(music => music.Year.ToLower().Equals(year))
                 .Select(music => music.Name)
                 .Distinct()
                 .ToList();
